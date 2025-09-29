@@ -1,3 +1,7 @@
+BACKEND NOTES 
+
+MAIN KNOWLEDGE
+
 api
     data transfer that transfer data in json formate
 
