@@ -27,7 +27,7 @@ what is backend use in mern stack ?
 Nodejs(runtime enviorment that compile our code with backend) , Express.js(to get import or export of data) , MangoDB(database {that stores data}
 
 
-                                                           MAKE PROJECT
+                                             MAKE PROJECT
 lets create project
 write command on terminal npm init
 then enter all suggestion (yes)
@@ -67,7 +67,7 @@ its  is use for validation of data come from user
  lets create Schema
 
  
-               Models folder work                            
+                                      Models folder work                            
 
 to make schema 
 import mongoos from mongoos
@@ -83,7 +83,7 @@ make variable at the end and store mongooes.model(" its a database container of 
 then export default  add the variable name where mongoos.model is stored. 
 
  
-               Config folder work            
+                                Config folder work            
 
 write  on terminal  npm i dotenv( for env files)
 make environment.mjs file to keep process.env for port and mongo
@@ -112,7 +112,7 @@ mongoos.connect (place  mongose url from env)
 and then export the mongoose.
 
 
-             Routes folder work
+                          Routes folder work
 
 make parent file as index.mjs where all routes are kept to export into main index file of backend folder
 import express from express 
@@ -134,7 +134,7 @@ router.use("/",router)
 where / indicates the main path or the main file of router folder (index.mjs)
 
 
-                    Make API
+                         Make API
 
 to make api following are the types.
 get 
@@ -153,7 +153,7 @@ similarly make variable
 to export write
 export default variable name .
                   
-                 Make Get API
+                      Make Get API
 syntex,
 
 router.get("/ ", async (res,req)=>{
@@ -165,7 +165,7 @@ router .get us a method to get data  where " / " provide main path of api eg:" h
 make a variable that holds schema and put .find() on it that find the products and validate according to the schema
 apply res.send() in that send  message ,  also a variable name that holds field , data : holds variable name  .
 
-             Make Get by Id API
+                      Make Get by Id API
 syntex,
 
 router.get("/:id",async (req,res)=>{
@@ -184,7 +184,7 @@ where syntx is same like get api , and we make path for get by id
 similarly make variable by applyiing await and schema for validation and apply method findById(which get the id of each product  where req.prams.id  shows the specific product id )
 and  then similarly send message after it catch block being appear that show error.
 
-               Make Post API
+                      Make Post API
 
 syntex ,
 
@@ -202,7 +202,7 @@ syntex ,
 all syntex is same but there's diffrence is after schema validation (req.body)shows that data are posted in the body of data similarly like postman.
 
 
-               Make Update API
+                         Make Update API
 
 syntex,
 
@@ -225,7 +225,7 @@ and req.body holds the product data  like ( title , price , etc...) and then it 
 where new:true return the new object made in the mongodb so that the old object does not appear in api .
 
 
-            Make Delete API
+                     Make Delete API
 
 syntex,
 
@@ -256,14 +256,14 @@ user_id
 token( this is generated when user login )
 
  
-             Make Post API With Image link
+                       Make Post API With Image link
 
 for make post api with accessible images we use multer and cloudinary 
 
                                                   
 
 
-                    OVERALL NOTES FOR MULTER AND CLOUDINARY
+                      OVERALL NOTES FOR MULTER AND CLOUDINARY
 .
 Multer kya hai?
 Multer ek middleware hai jo Node.js/Express mein file uploads handle karta hai.
@@ -323,7 +323,7 @@ Fir Cloudinary pe upload ka code chalega.
 Fir product ka data + Cloudinary ka URL DB me save hoga
 
 
-                   HOW TO INTEGRATE MULTER AND CLOUDINARY
+                       HOW TO INTEGRATE MULTER AND CLOUDINARY
 
 
 write on terminal npm i multer(for multer)
@@ -339,7 +339,10 @@ Middleware ek beech ka function hai jo request aur response ke darmiyan chal kar
 
 
 
-                                                          Config Folder work
+                                                    
+                                                Config Folder work
+
+                                                
 make cloudinary.mjs file 
 import dotenv from "dotenv";
 
@@ -398,7 +401,10 @@ const upload = multer({ storage}); //lastly this sets storage in multer that per
 export default upload;
 
 
-               Route Folder Work
+                         Route Folder Work
+
+
+               
 now in product.mjs file lets integrate cloudinary .
 
 import upload from "../middlewares/uploadimg.mjs";
@@ -412,7 +418,7 @@ const imageUrl = req.file?.path; // Get the image URL from the uploaded file
         };
 
 
-                                                     FINAL POST API 
+                              FINAL POST API 
 
 
 and here is the final post api
@@ -560,7 +566,7 @@ app.get("/", (req, res) => {
 });
 
 
-              How to Apply JWT (jsonwebtoken)
+                 How to Apply JWT (jsonwebtoken)
 
 
 what is jwt ?
@@ -569,7 +575,9 @@ Jab user login karta hai to backend ek JWT generate karke frontend ko deta hai, 
  Backend is token ko verify karke confirm karta hai ke request ek valid user ki hai aur uske paas kya permissions hain. 
 Ye method stateless, secure aur scalable hota hai, is liye modern web apps me bohot use hota hai.
 
-              Lets add jwt into project
+                Lets add jwt into project
+
+                
 write on google npm jwt get command.
 write( npm i jsonwebtoken ) on terminal
 
@@ -577,7 +585,7 @@ make variable in .env file and store ur own maked jwtsecret.
 JWT_SECRET= can place any key word
 
     
-             Config Folder Work
+                Config Folder Work
 
 in enviornmental.mjs file make process.envof jwt secret
 export const JWT_SECRET=process.env.JWT_SECRET
@@ -592,6 +600,9 @@ export default jwtSecret
 
 
              Model Folder Work
+
+
+             
 lets make schema for users
 cerate a file user.mjs
 
@@ -809,7 +820,7 @@ aur dependencies check kro(express, cors, mongoose, etc.) listed hain.
 
 
 
-                                              //MVC{ model view contrller}
+                            MVC{ model view contrller}
 
 sbsy phely yeh 2 chizn edition hongi 
 controller
