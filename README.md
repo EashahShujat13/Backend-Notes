@@ -36,7 +36,7 @@ then we need to make our server live hence we write in packge.json file
 
 "script" : {
 "start" : node-index.mjs
-"dev": nodemon.mjs
+"dev": "nodemon index.mjs",
 }
 
 
