@@ -33,6 +33,7 @@ write command on terminal npm init
 then enter all suggestion (yes)
 u get packge.json file
 then we need to make our server live hence we write in packge.json file 
+
 "script" : {
 "start" : node-index.mjs
 "dev": nodemon.mjs
@@ -103,9 +104,7 @@ then use mongooes connection function as
 
 import mongoose from "mongoose";
 import  {MONGO_URL} from './environment.mjs';
-
 mongoose.connect(MONGO_URL)
-
 export default mongoose
 
 mongoos.connect (place  mongose url from env)
