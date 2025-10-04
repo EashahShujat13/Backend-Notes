@@ -607,6 +607,7 @@ cerate a file user.mjs
 
 
 import mongoose from "mongoose";
+
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'
 import jwtSecret from "../config/jwt.mjs";
@@ -636,32 +637,30 @@ tokens: {
 });
 userSchema.pre('save',function(next){
     const user=this
-    //encryption
     if (user.isModified('password')) {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(user.password, salt);
-    
-        user.password = hash
+          user.password = hash
     }
     next()
 })
 
 userSchema.methods.comparePassword = function (password) {
     const user = this
-
-    //user.password === db password (encrypted) asjdhu2i346193
-    //password === frontend password (normal) 123456
     console.log('db password', user.password)
     console.log('frontend password', password)
-    
     return bcrypt.compareSync(password, user.password)
+  
+    //user.password === db password (encrypted) asjdhu2i346193
+    //password === frontend password (normal) 123456
+    
 }
 
 userSchema.methods.generateToken = function() {
     const { _id } = this
-    const token = jwt.sign({ _id }, jwtSecret);
-
-    return token
+    const token = jwt.sign({ _id }, jwtSecret)
+     return token
+   
 }
 
 const Users = mongoose.model('user', userSchema);
@@ -683,12 +682,10 @@ import jwtSecret from '../config/jwt.mjs';
 
 async function verifyToken(req, res, next) {
     const token = req.headers.authorization?.split(' ')[1]
-
     if (!token) {
         res.status(401).send({ message: "No access!" })
         return
     }
-
     try {
         const decoded = jwt.verify(token, jwtSecret)
 
